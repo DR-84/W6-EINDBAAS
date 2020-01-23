@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-//import MakeDropDownItems from './Components/MakeDropDownItems';
+import MakeDropDownItems from './Components/MakeDropDownItems';
 import Container from './Components/Container';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-export default function App() {
+export default function App(props) {
 	return (
 		<Router>
 			<div>
@@ -62,7 +62,7 @@ function Users() {
 	return (
 		<div>
 			<h2>Student Overview</h2>
-			{/* <MakeDropDownItems /> */}
+			<MakeDropDownItems />
 		</div>
 	);
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 
 const MakeDropDownItems = props => {
-	console.log(props.student);
 	return (
-		<select name="students" onStudentClickHandler={props.onStudentClickHandler}>
-			<option value={props.student}>{props.student}</option>
+		<select name="students">
+			<option value={props.name}>{props.name}</option>
 		</select>
 	);
 };
