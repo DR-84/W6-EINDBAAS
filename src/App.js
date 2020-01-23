@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
+//import MakeDropDownItems from './Components/MakeDropDownItems';
 import Container from './Components/Container';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import StudentPagesDropDown from './Components/StudentPagesDropDown';
 
 export default function App() {
 	return (
@@ -42,6 +42,7 @@ function Home() {
 	return (
 		<div className="App">
 			<header className="App-header"></header>
+			<h2>Assignments</h2>
 
 			<Container />
 		</div>
@@ -60,10 +61,8 @@ function About() {
 function Users() {
 	return (
 		<div>
-			<h2>Users</h2>
-			<ul>
-				<StudentPagesDropDown />
-			</ul>
+			<h2>Student Overview</h2>
+			{/* <MakeDropDownItems /> */}
 		</div>
 	);
 }

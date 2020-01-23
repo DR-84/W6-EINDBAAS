@@ -10,11 +10,11 @@ const BarChartData = props => {
 		}
 	);
 
-	console.log('weekname in barchartdata', props.week);
+	//console.log('weekname in barchartdata', props.week);
 	const filteredByWeek = assignmentNamesFiltered.filter(word =>
 		word.includes(props.week)
 	);
-	console.log(filteredByWeek);
+	//console.log(filteredByWeek);
 	const AssignmentAverages = filteredByWeek.map(name => {
 		const AssignmentValues = props.data.filter(
 			item => item.assignment === name
@@ -32,10 +32,10 @@ const BarChartData = props => {
 		};
 	});
 
-	console.log(AssignmentAverages);
+	//console.log(AssignmentAverages);
 	return (
 		<div>
-			<select name="week" onChange={props.onSubmitHandler}>
+			<select name="week" onChange={props.onSubmitWeekHandler}>
 				<option value="W1">Week One</option>
 				<option value="W2">Week Two</option>
 				<option value="W3">Week Three</option>

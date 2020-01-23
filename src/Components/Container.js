@@ -1,17 +1,18 @@
 import React from 'react';
 import StudentData from './StudentData';
 import BarChartData from './BarChartData';
-//import { VictoryBar, VictoryChart } from 'victory';
+import StudentPagesDropDown from './StudentPagesDropDown';
 class Container extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			StudentData,
-			week: 'W1'
+			Week: 'W1',
+			Students: []
 		};
-		this.onSubmitHandler = this.onSubmitHandler.bind(this);
+		this.onSubmitWeekHandler = this.onSubmitWeekHandler.bind(this);
 	}
-	onSubmitHandler(event) {
+	onSubmitWeekHandler(event) {
 		console.log('submit got clicked yo', event.target.value);
 		event.preventDefault();
 		const dropDown = event.target.value;
@@ -19,7 +20,7 @@ class Container extends React.Component {
 		console.log(dropDown);
 		this.setState(prevState => {
 			return {
-				week: dropDown
+				Week: dropDown
 			};
 		});
 	}
@@ -27,11 +28,13 @@ class Container extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Assignments</h1>
-
 				<BarChartData
-					week={this.state.week}
-					onSubmitHandler={this.onSubmitHandler}
+					week={this.state.Week}
+					onSubmitWeekHandler={this.onSubmitWeekHandler}
+					data={this.state.StudentData}
+				/>
+				<StudentPagesDropDown
+					onStudentClickHandler={this.onStudentClickHandler}
 					data={this.state.StudentData}
 				/>
 			</div>
