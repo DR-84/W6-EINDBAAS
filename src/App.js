@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import MakeDropDownItems from './Components/MakeDropDownItems';
+import StudentPage from './Components/StudentsPage';
 import Container from './Components/Container';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-export default function App(props) {
+export default function App() {
 	return (
 		<Router>
 			<div>
@@ -43,7 +43,6 @@ function Home() {
 		<div className="App">
 			<header className="App-header"></header>
 			<h2>Assignments</h2>
-
 			<Container />
 		</div>
 	);
@@ -62,7 +61,7 @@ function Users() {
 	return (
 		<div>
 			<h2>Student Overview</h2>
-			<MakeDropDownItems />
+			<StudentPage />
 		</div>
 	);
 }

@@ -9,8 +9,12 @@ const StudentPagesDropDown = props => {
 	const dropDownItems = namesFiltered.map(item => (
 		<MakeDropDownItems name={item} />
 	));
-	console.log('namesFiltered', namesFiltered);
-	return <select name="students">{dropDownItems}</select>;
+	//console.log('StudentPagesDropDown', props);
+	return (
+		<select onChange={props.selectStudentHandler} name="students">
+			{dropDownItems}
+		</select>
+	);
 };
 
 export default StudentPagesDropDown;

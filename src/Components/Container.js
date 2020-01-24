@@ -1,23 +1,26 @@
 import React from 'react';
 import StudentData from './StudentData';
 import BarChartData from './BarChartData';
-import StudentPagesDropDown from './StudentPagesDropDown';
+//import StudentPagesDropDown from './StudentPagesDropDown';
 class Container extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			StudentData,
-			Week: 'W1',
-			Students: []
+			Week: 'W1'
 		};
 		this.onSubmitWeekHandler = this.onSubmitWeekHandler.bind(this);
 	}
+	filterDataByName() {
+		const filtered = this.state.StudentData.filter(name =>
+			name.includes('Evelyn')
+		);
+		console.log(filtered);
+	}
 	onSubmitWeekHandler(event) {
-		console.log('submit got clicked yo', event.target.value);
+		console.log('week got clicked yo', event.target.value);
 		event.preventDefault();
 		const dropDown = event.target.value;
-
-		console.log(dropDown);
 		this.setState(prevState => {
 			return {
 				Week: dropDown
@@ -31,10 +34,6 @@ class Container extends React.Component {
 				<BarChartData
 					week={this.state.Week}
 					onSubmitWeekHandler={this.onSubmitWeekHandler}
-					data={this.state.StudentData}
-				/>
-				<StudentPagesDropDown
-					onStudentClickHandler={this.onStudentClickHandler}
 					data={this.state.StudentData}
 				/>
 			</div>

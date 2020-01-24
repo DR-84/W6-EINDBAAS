@@ -1,0 +1,43 @@
+import React from 'react';
+import StudentData from './StudentData';
+import StudentPagesDropDown from './StudentPagesDropDown';
+import StudentBarChartAverage from './StudentBarChartAverage';
+class Container extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			StudentData,
+			Student: 'Evelyn'
+		};
+		this.selectStudentHandler = this.selectStudentHandler.bind(this);
+	}
+	selectStudentHandler(event) {
+		//console.log('submit got clicked yo', event.target.value);
+		event.preventDefault();
+		const dropDown = event.target.value;
+
+		console.log(dropDown);
+		this.setState(prevState => {
+			return {
+				Student: dropDown
+			};
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<StudentPagesDropDown
+					selectStudentHandler={this.selectStudentHandler}
+					data={this.state.StudentData}
+				/>
+				<StudentBarChartAverage
+					data={this.state.StudentData}
+					student={this.state.Student}
+				/>
+			</div>
+		);
+	}
+}
+
+export default Container;

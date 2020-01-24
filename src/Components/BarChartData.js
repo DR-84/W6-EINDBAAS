@@ -10,40 +10,51 @@ const BarChartData = props => {
 		}
 	);
 
-	//console.log('weekname in barchartdata', props.week);
+	//console.log('assignments in barchartdata', assignmentNamesFiltered);
 	const filteredByWeek = assignmentNamesFiltered.filter(word =>
 		word.includes(props.week)
 	);
-	//console.log(filteredByWeek);
+
+	console.log(props);
 	const AssignmentAverages = filteredByWeek.map(name => {
 		const AssignmentValues = props.data.filter(
 			item => item.assignment === name
 		);
+
 		const difficultyAverage =
 			AssignmentValues.reduce((prev, curr) => prev + curr.difficultyRating, 0) /
 			AssignmentValues.length;
 		const funAverage =
 			AssignmentValues.reduce((prev, curr) => prev + curr.funRating, 0) /
 			AssignmentValues.length;
+
 		return {
 			assignment: name,
 			difficultyAverage: difficultyAverage,
 			funAverage: funAverage
 		};
 	});
-
+	//console.log('AssignmentAverages in barchartdata', AssignmentAverages);
 	//console.log(AssignmentAverages);
 	return (
 		<div>
-			<select name="week" onChange={props.onSubmitWeekHandler}>
-				<option value="W1">Week One</option>
-				<option value="W2">Week Two</option>
-				<option value="W3">Week Three</option>
-				<option value="W4">Week Four</option>
-				<option value="W5">Week Five</option>
-				<option value="W6">Week Six</option>
-			</select>
-			<VictoryChart height={250} width={700}>
+			<form>
+				<select name="week" onChange={props.onSubmitWeekHandler}>
+					<option value="W1">Week One</option>
+					<option value="W2">Week Two</option>
+					<option value="W3">Week Three</option>
+					<option value="W4">Week Four</option>
+					<option value="W5">Week Five</option>
+					<option value="W6">Week Six</option>
+				</select>
+				<select name="dataSelector" onChange={props.onSubmitWeekHandler}>
+					<option value="allData">Compare Fun / Difficulty </option>
+					<option value="fun"> Fun</option>
+					<option value="difficulty"> Difficulty</option>
+				</select>
+			</form>
+
+			<VictoryChart height={250} width={650}>
 				<VictoryAxis
 					style={{
 						tickLabels: {
