@@ -6,7 +6,11 @@ const StudentPagesDropDown = props => {
 	const namesFiltered = namesNames.filter((name, index, names) => {
 		return names.indexOf(name) === index;
 	});
-	return <MakeDropDownItems name={namesFiltered} />;
+	const dropDownItems = namesFiltered.map(item => (
+		<MakeDropDownItems name={item} />
+	));
+	console.log('namesFiltered', namesFiltered);
+	return <select name="students">{dropDownItems}</select>;
 };
 
 export default StudentPagesDropDown;
