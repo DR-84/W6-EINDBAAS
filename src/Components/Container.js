@@ -30,7 +30,7 @@ class Container extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="whatisthis">
 				<BarChartData
 					week={this.state.Week}
 					onSubmitWeekHandler={this.onSubmitWeekHandler}

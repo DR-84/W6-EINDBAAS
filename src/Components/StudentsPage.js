@@ -26,10 +26,12 @@ class Container extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="Student-Page">
+				<h1>{this.state.Student}</h1>
 				<StudentPagesDropDown
 					selectStudentHandler={this.selectStudentHandler}
 					data={this.state.StudentData}
+					student={this.state.Student}
 				/>
 				<StudentBarChartAverage
 					data={this.state.StudentData}

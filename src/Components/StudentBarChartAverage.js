@@ -16,9 +16,8 @@ const StudentBarChartAverage = props => {
 	console.log(studentNameData);
 	return (
 		<div>
-			<h1>{props.student}</h1>
 			<VictoryChart
-				height={250}
+				height={150}
 				width={450}
 				containerComponent={
 					<VictoryZoomContainer
@@ -37,6 +36,7 @@ const StudentBarChartAverage = props => {
 				<VictoryAxis dependentAxis style={{ tickLabels: { fontSize: 5 } }} />
 				<VictoryGroup offset={10}>
 					<VictoryBar
+						color="#6ec1e4"
 						orientation="left"
 						barWidth={10}
 						data={studentNameData}
@@ -45,6 +45,7 @@ const StudentBarChartAverage = props => {
 						/* tickValues={[1, 2, 3, 4, 5]} */
 					/>
 					<VictoryBar
+						color="#ECBA1D"
 						orientation="right"
 						barWidth={10}
 						data={studentNameData}

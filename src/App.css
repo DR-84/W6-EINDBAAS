@@ -1,0 +1,51 @@
+body {
+	background-color: #fff;
+}
+.About {
+	background-color: #ecba1d;
+	height: 200px;
+	padding-top: 20px;
+}
+.App {
+	background-color: #ecba1d;
+	height: 200px;
+	padding-top: 20px;
+}
+.Users {
+	background-color: #ecba1d;
+	height: 200px;
+	padding-top: 20px;
+	height: 50%;
+}
+.Students {
+	background-color: #ecba1d;
+}
+
+.Router-Header {
+	background-color: '#6ec1e4';
+	height: 200px;
+}
+.Router-Nav {
+	background-color: #6ec1e4;
+	padding: 20px;
+}
+.Router-Nav a {
+	color: #fff;
+	font-size: larger;
+	text-transform: uppercase;
+}
+.Student-Page {
+	background-color: #fff;
+	padding: 20px;
+	justify-items: center;
+	text-align: center;
+}
+.VictoryContainer {
+	height: 200px;
+}
+.Form-Div {
+	background-color: #fff;
+	padding: 20px;
+	justify-items: center;
+	text-align: center;
+}

@@ -38,23 +38,25 @@ const BarChartData = props => {
 	//console.log(AssignmentAverages);
 	return (
 		<div>
-			<form>
-				<select name="week" onChange={props.onSubmitWeekHandler}>
-					<option value="W1">Week One</option>
-					<option value="W2">Week Two</option>
-					<option value="W3">Week Three</option>
-					<option value="W4">Week Four</option>
-					<option value="W5">Week Five</option>
-					<option value="W6">Week Six</option>
-				</select>
-				<select name="dataSelector" onChange={props.onSubmitWeekHandler}>
-					<option value="allData">Compare Fun / Difficulty </option>
-					<option value="fun"> Fun</option>
-					<option value="difficulty"> Difficulty</option>
-				</select>
-			</form>
+			<div className="Form-Div">
+				<form>
+					<select name="week" onChange={props.onSubmitWeekHandler}>
+						<option value="W1">Week One</option>
+						<option value="W2">Week Two</option>
+						<option value="W3">Week Three</option>
+						<option value="W4">Week Four</option>
+						<option value="W5">Week Five</option>
+						<option value="W6">Week Six</option>
+					</select>
+					<select name="dataSelector" onChange={props.onSubmitWeekHandler}>
+						<option value="allData">Compare Fun / Difficulty </option>
+						<option value="fun"> Fun</option>
+						<option value="difficulty"> Difficulty</option>
+					</select>
+				</form>
+			</div>
 
-			<VictoryChart height={250} width={650}>
+			<VictoryChart height={150} width={650}>
 				<VictoryAxis
 					style={{
 						tickLabels: {
@@ -65,6 +67,7 @@ const BarChartData = props => {
 				<VictoryAxis dependentAxis style={{ tickLabels: { fontSize: 5 } }} />
 				<VictoryGroup offset={10}>
 					<VictoryBar
+						color="#6ec1e4"
 						orientation="left"
 						barWidth={10}
 						data={AssignmentAverages}
@@ -73,6 +76,7 @@ const BarChartData = props => {
 						/* tickValues={[1, 2, 3, 4, 5]} */
 					/>
 					<VictoryBar
+						color="#ECBA1D"
 						orientation="right"
 						barWidth={10}
 						data={AssignmentAverages}

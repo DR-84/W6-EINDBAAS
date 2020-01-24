@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 export default function App() {
 	return (
 		<Router>
-			<div>
-				<nav>
+			<div className="Router-Header">
+				<nav className="Router-Nav">
 					<ul>
 						<li>
 							<Link to="/">Dashboard</Link>
@@ -40,9 +40,12 @@ export default function App() {
 
 function Home() {
 	return (
-		<div className="App">
+		<div>
+			<div className="App">
+				<h2>Assignments</h2>
+			</div>
 			<header className="App-header"></header>
-			<h2>Assignments</h2>
+
 			<Container />
 		</div>
 	);
@@ -50,7 +53,7 @@ function Home() {
 
 function About() {
 	return (
-		<div>
+		<div className="About">
 			<h2>Daaaaaaaan</h2>
 			<p>Super gezellig dat je hier bent! je hebt me alleen net gemist.</p>
 		</div>
@@ -59,7 +62,7 @@ function About() {
 
 function Users() {
 	return (
-		<div>
+		<div className="Users">
 			<h2>Student Overview</h2>
 			<StudentPage />
 		</div>
