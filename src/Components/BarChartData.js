@@ -1,5 +1,11 @@
 import React from 'react';
-import { VictoryBar, VictoryChart, VictoryGroup, VictoryAxis } from 'victory';
+import {
+	VictoryBar,
+	VictoryChart,
+	VictoryGroup,
+	VictoryAxis,
+	VictoryLegend
+} from 'victory';
 
 const BarChartData = props => {
 	const AssignmentNames = props.data.map(item => item.assignment);
@@ -60,13 +66,33 @@ const BarChartData = props => {
 				<VictoryAxis
 					style={{
 						tickLabels: {
+							fontSize: 5,
+							angle: 20
+						}
+					}}
+				/>
+				<VictoryLegend
+					style={{
+						labels: {
 							fontSize: 5
 						}
 					}}
+					x={50}
+					y={5}
+					orientation="horizontal"
+					gutter={10}
+					data={[
+						{ name: 'FUN', symbol: { fill: '#6ec1e4' } },
+						{
+							name: 'DIFFICULTY',
+							symbol: { fill: '#ECBA1D' }
+						}
+					]}
 				/>
 				<VictoryAxis dependentAxis style={{ tickLabels: { fontSize: 5 } }} />
 				<VictoryGroup offset={10}>
 					<VictoryBar
+						animate={{ duration: 500 }}
 						color="#6ec1e4"
 						orientation="left"
 						barWidth={10}

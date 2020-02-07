@@ -4,7 +4,8 @@ import {
 	VictoryChart,
 	VictoryGroup,
 	VictoryAxis,
-	VictoryZoomContainer
+	VictoryZoomContainer,
+	VictoryLegend
 } from 'victory';
 
 const StudentBarChartAverage = props => {
@@ -34,8 +35,28 @@ const StudentBarChartAverage = props => {
 					}}
 				/>
 				<VictoryAxis dependentAxis style={{ tickLabels: { fontSize: 5 } }} />
+				<VictoryLegend
+					style={{
+						labels: {
+							fontSize: 3
+						}
+					}}
+					x={50}
+					y={5}
+					orientation="horizontal"
+					gutter={10}
+					data={[
+						{ name: 'FUN', symbol: { fill: '#6ec1e4' } },
+						{
+							name: 'DIFFICULTY',
+							symbol: { fill: '#ECBA1D' }
+						}
+					]}
+				/>
+				<VictoryAxis dependentAxis style={{ tickLabels: { fontSize: 5 } }} />
 				<VictoryGroup offset={10}>
 					<VictoryBar
+						animate={{ duration: 500 }}
 						color="#6ec1e4"
 						orientation="left"
 						barWidth={10}
@@ -45,6 +66,7 @@ const StudentBarChartAverage = props => {
 						/* tickValues={[1, 2, 3, 4, 5]} */
 					/>
 					<VictoryBar
+						animate={{ duration: 500 }}
 						color="#ECBA1D"
 						orientation="right"
 						barWidth={10}
