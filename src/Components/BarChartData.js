@@ -9,30 +9,39 @@ import {
 
 const BarChartData = props => {
 	const AssignmentNames = props.data.map(item => item.assignment);
-	/* const weekName = props.week.map(item => item.weekValue); */
+
 	const assignmentNamesFiltered = AssignmentNames.filter(
 		(name, index, names) => {
 			return names.indexOf(name) === index;
 		}
 	);
 
-	//console.log('assignments in barchartdata', assignmentNamesFiltered);
 	const filteredByWeek = assignmentNamesFiltered.filter(word =>
 		word.includes(props.week)
 	);
 
+	console.log(props.dataType);
 	console.log(props);
 	const AssignmentAverages = filteredByWeek.map(name => {
 		const AssignmentValues = props.data.filter(
 			item => item.assignment === name
 		);
 
+		//if Data === "difficulty" return difficultyAverage
+		//if Data === "fun" return funAverage
+		//if Data === 'allData' return funAverage
 		const difficultyAverage =
-			AssignmentValues.reduce((prev, curr) => prev + curr.difficultyRating, 0) /
-			AssignmentValues.length;
+			props.dataType !== 'fun'
+				? AssignmentValues.reduce(
+						(prev, curr) => prev + curr.difficultyRating,
+						0
+				  ) / AssignmentValues.length
+				: 0;
 		const funAverage =
-			AssignmentValues.reduce((prev, curr) => prev + curr.funRating, 0) /
-			AssignmentValues.length;
+			props.dataType !== 'difficulty'
+				? AssignmentValues.reduce((prev, curr) => prev + curr.funRating, 0) /
+				  AssignmentValues.length
+				: 0;
 
 		return {
 			assignment: name,
@@ -40,8 +49,7 @@ const BarChartData = props => {
 			funAverage: funAverage
 		};
 	});
-	//console.log('AssignmentAverages in barchartdata', AssignmentAverages);
-	//console.log(AssignmentAverages);
+
 	return (
 		<div>
 			<div className="Form-Div">
@@ -54,7 +62,7 @@ const BarChartData = props => {
 						<option value="W5">Week Five</option>
 						<option value="W6">Week Six</option>
 					</select>
-					<select name="dataSelector" onChange={props.onSubmitWeekHandler}>
+					<select name="dataSelector" onChange={props.onSubmitDataHandler}>
 						<option value="allData">Compare Fun / Difficulty </option>
 						<option value="fun"> Fun</option>
 						<option value="difficulty"> Difficulty</option>
